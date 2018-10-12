@@ -3,7 +3,6 @@ import { connect } from 'dva';
 import { Tabs } from 'antd-mobile';
 import { StickyContainer, Sticky } from 'react-sticky';
 
-
 function renderTabBar(props) {
   return (<Sticky>
     {({ style }) => <div style={{ ...style, zIndex: 1 }}><Tabs.DefaultTabBar {...props} page={5} /></div>}
@@ -21,6 +20,7 @@ const PageHeader = ({tabs, children, changeTab }) => {
       special_id: item.special_id
     }
   });
+
   return (
     <div>
         <StickyContainer>
@@ -28,11 +28,12 @@ const PageHeader = ({tabs, children, changeTab }) => {
             tabs={tabsTitle} 
             renderTabBar={renderTabBar} 
             onChange={change} 
-            tabBarUnderlineStyle={{background: '#fff'}}
-            tabBarBackgroundColor="#eb4e4f" 
+            tabBarUnderlineStyle={{'borderColor':'#fff'}}
+            tabBarBackgroundColor="#2b2b2b" 
             tabBarActiveTextColor="#fff"
-            tabBarTextStyle={{color: 'skyblue'}}
-            tabBarInactiveTextColor="rgba(247, 247, 247, 0.8)">
+            tabBarInactiveTextColor="#999"
+            tabBarTextStyle={{fontSize: '14px'}}
+            >
               {children ? <div>{children}</div> : null}
           </Tabs>
         </StickyContainer>

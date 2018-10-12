@@ -12,6 +12,7 @@ export default {
     *getTabs({ payload }, { call, put }) {
       const  { data }  = yield call(queryTabs);
       if (data.code === 200) {
+        // console.log('tabs:', data.datas.tabs);
         yield put({
           type: 'saveTabs',
           payload: data.datas.tabs
@@ -31,6 +32,7 @@ export default {
       const { special_id, page, curpage, name } = payload;
       const { data } = yield call(queryTabsContent, { special_id, page, curpage });
       if (data.code === 200) {
+        console.log('data:',data.datas);
         yield put({
           type: 'saveCache',
           payload: {
